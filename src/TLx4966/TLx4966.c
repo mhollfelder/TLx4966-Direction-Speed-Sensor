@@ -253,7 +253,7 @@ INLINE void TLx4966_UpdateValues(TLx4966_Handle_t *handle)
     // Check whether the motor has stopped and the old speed is not updated anymore due to missing rising edge event.
     // For this case, the motor stops and the last speed is present in the internal struct and not updated anymore.
     double speedBuffer = TLx4966_SpeedCoeffient[handle->speedUnit]/((double)handle->polesPair * (double)handle->hwIntf->timer->elapsed());
-    if(speedBuffer < speed) handle->speed = speedBuffer;
+    if(speedBuffer < handle->speed) handle->speed = speedBuffer;
 }
 
 /**
